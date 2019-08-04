@@ -1,11 +1,12 @@
 import * as React from 'react';
-import { StyleSheet, SafeAreaView } from 'react-native';
-import { Button, Layout, Text } from 'react-native-ui-kitten';
+import { StyleSheet, ListRenderItemInfo } from 'react-native';
+import { Button, Layout, Text, List, ListItem } from 'react-native-ui-kitten';
 
-export const HomeScreen = (props = {}) => (
-    <Layout style={styles.container}>
-      <Text style={styles.text} category='h1'>Tab#{props.tabIndex}</Text>
-    </Layout>
+const HomeScreen = (props = {}) => (
+  <Layout style={styles.container}>
+    <Text style={styles.text} category='h1'>Home{props.tabIndex}</Text>
+    <Button onPress={e => props.appendItem('123')}>Append</Button>
+  </Layout>
 );
 
 const styles = StyleSheet.create({
@@ -18,3 +19,5 @@ const styles = StyleSheet.create({
     marginVertical: 16,
   },
 });
+
+export default HomeScreen;

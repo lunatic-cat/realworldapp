@@ -2,7 +2,7 @@ import React from 'react';
 import { BottomNavigation, BottomNavigationTab } from 'react-native-ui-kitten';
 import { CropOutline, ListOutline, SettingsOutline } from '../src/icons';
 
-export const Navigation = (props) => (
+const Navigation = (props) => (
   <BottomNavigation
     selectedIndex={props.selectedIndex}
     onSelect={props.onSelect}>
@@ -12,3 +12,5 @@ export const Navigation = (props) => (
     <BottomNavigationTab title='Settings' icon={SettingsOutline} />
   </BottomNavigation>
 );
+
+export default Navigation;
