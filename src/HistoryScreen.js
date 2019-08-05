@@ -10,7 +10,6 @@ const statusIcon = (status) => {
 }
 
 const modal = ({ items, modalItemIndex, setModalItemIndex }) => {
-    console.log('modalItemIndex', modalItemIndex)
     return (
         <Modal
             visible={(modalItemIndex !== null) && items[modalItemIndex]}
@@ -26,7 +25,6 @@ const modal = ({ items, modalItemIndex, setModalItemIndex }) => {
 }
 
 const HistoryScreen = (props = {}) => {
-    console.log('modal', props);
     const renderItem = ({ item, index, separators }) => {
         const { highlight, _unhighlight, _updateProps } = separators;
         return (<ListItem
