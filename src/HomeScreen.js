@@ -6,7 +6,7 @@ import QRCodeScanner from 'react-native-qrcode-scanner';
 const buttonLabel = ({ data, server }) => {
   if (!server) return 'Set server in settings';
   if (!data.length) return 'Scan code';
-  return `Send "${data}"`;
+  return `Send: "${data}"`;
 }
 
 const buttonEnabled = ({ data, server }) => {
@@ -19,12 +19,14 @@ const HomeScreen = (props = {}) => (
       ref={(node) => { this.scanner = node; }}
       containerStyle={styles.scannerContainer}
       cameraStyle={styles.scanner}
-      onRead={props.setData}
+      onRead={e => props.setData(e.data)}
     />
     <Layout style={styles.bottomRow}>
       <Button style={styles.sendBtn}
         disabled={!buttonEnabled(props)}
-        onPress={e => props.sendItem()}>{buttonLabel(props)}</Button>
+        onPress={e => { props.sendItem(); (this.scanner && this.scanner.reactivate()); props.setData('') }}>
+        {buttonLabel(props)}
+      </Button>
     </Layout>
   </Layout>
 );
