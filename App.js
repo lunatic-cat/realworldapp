@@ -30,7 +30,7 @@ const defaultHeaders = {
 const App = () => {
   const [tabIndex, setTabIndex] = useState(0);
   const [server, setServer] = useState('https://httpbin.org/status/200,500');
-  const [data, setData] = useState(`Data: ${Math.floor(Math.random() * 10)}`);
+  const [data, setData] = useState('');
   const [items, setItems] = useState([exampleItem1, exampleItem2, exampleItem3]);
   const [modalItemIndex, setModalItemIndex] = useState(null);
 
