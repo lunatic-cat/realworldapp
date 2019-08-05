@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { StyleSheet, SafeAreaView } from 'react-native';
-import { Button, Layout, Text, Input } from 'react-native-ui-kitten';
+import { Button, Layout, Text, Input } from '@lunatic-cat/react-native-ui-kitten';
 
 const SettingScreen = (props = {}) => (
     <Layout style={styles.container}>

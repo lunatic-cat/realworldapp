@@ -1,5 +1,5 @@
 import React from 'react';
-import { BottomNavigation, BottomNavigationTab } from 'react-native-ui-kitten';
+import { BottomNavigation, BottomNavigationTab } from '@lunatic-cat/react-native-ui-kitten';
 import { CropOutline, ListOutline, SettingsOutline } from '../src/icons';
 
 const Navigation = (props) => (
