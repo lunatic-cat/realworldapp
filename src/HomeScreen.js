@@ -1,6 +1,7 @@
 import * as React from 'react';
-import { StyleSheet } from 'react-native';
+import { StyleSheet, TouchableOpacity } from 'react-native';
 import { Button, Layout, Text, List, ListItem } from '@lunatic-cat/react-native-ui-kitten';
+import QRCodeScanner from 'react-native-qrcode-scanner';
 
 const buttonLabel = ({ data, server }) => {
   if (!server) return 'Set server in settings';
@@ -14,6 +15,12 @@ const buttonEnabled = ({ data, server }) => {
 
 const HomeScreen = (props = {}) => (
   <Layout style={styles.container}>
+    <QRCodeScanner
+      ref={(node) => { this.scanner = node; }}
+      containerStyle={styles.scannerContainer}
+      cameraStyle={styles.scanner}
+      onRead={props.setData}
+    />
     <Layout style={styles.bottomRow}>
       <Button style={styles.sendBtn}
         disabled={!buttonEnabled(props)}
@@ -36,11 +43,19 @@ const styles = StyleSheet.create({
     position: 'absolute',
     bottom: 10,
     paddingVertical: 20,
+    paddingHorizontal: 40,
+    backgroundColor: 'transparent',
   },
   sendBtn: {
-    paddingHorizontal: 40,
+    flex: 1,
     width: '90%',
     paddingVertical: 20,
+  },
+  scanner: {
+    flex: 1,
+  },
+  scannerContainer: {
+    flex: 1,
   }
 });
 
